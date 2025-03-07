@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Watersports";
+}
+
+<div class="text-center">
+    <h2 class="border bg-secondary text-white">@ViewData["Title"]</h2>
+    <table class="table table-sm table-striped table-bordered">
+        <tbody>
+            <tr><th>Name</th><td>@Model.Name</td></tr>
+            <tr>
+                <th>Price</th>
+                <td>@Model.Price.ToString("c")</td>
+            </tr>
+            <tr>
+                <th>Category ID</th>
+                <td>@Model.CategoryId</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,37 @@
+# Ignore build output
+*/bin/
+*/obj/
+*/out/
+
+# Ignore IDE settings
+.vs/
+.idea/
+.vscode/
+
+# Ignore user-specific files
+user secrets/
+
+# Ignore appsettings.json
+appsettings.json
+appsettings.Development.json
+
+# Ignore log files
+*.log
+
+# Ignore NuGet package files
+*.nupkg
+
+# Ignore publish folder
+publish/
+
+# Ignore generated files
+project.lock.json
+project.fragment.lock.json
+
+# Ignore temporary files
+*.bak
+*.swp
+
+# Ignore solution and project files
+*.sln
+*.csproj
