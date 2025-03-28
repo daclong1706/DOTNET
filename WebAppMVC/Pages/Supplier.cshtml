@@ -1,0 +1,71 @@
+@page "{id:long?}"
+@model WebAppMVC.Pages.SupplierModel
+@{
+    ViewData["Title"] = "Danh sách Supplier";
+}
+@{
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+
+    <body>
+        @if (Model.Supplier != null)
+        {
+            <div class="m-2 p-2">
+                <h6 class="bg-success text-white text-center p-2">Chi tiết</h6>
+                <table border="table table-sm table-striped table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <td>@Model.Supplier.SupplierId</td>
+                    </tr>
+                    <tr>
+                        <th>Tên</th>
+                        <td>@Model.Supplier.Name</td>
+                    </tr>
+                    <tr>
+                        <th>Địa chỉ</th>
+                        <td>@Model.Supplier.City</td>
+                    </tr>
+                </table>
+                <p><a href="/supplier">Quay lại danh sách</a></p>
+            </div>
+        }
+        else if (Model.Suppliers != null && Model.Suppliers.Count > 0)
+        {
+            <div class="m-2 p-2">
+                <h6 class="bg-danger text-white text-center p-2">Suppliers</h6>
+                <table class="table table-sm table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Supplier ID</th>
+                            <th>Name</th>
+                            <th>Chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var supplier in Model.Suppliers)
+                        {
+                            <tr>
+                                <td>@supplier.SupplierId</td>
+                                <td>@supplier.Name</td>
+                                <td><a href="/supplier/@supplier.SupplierId">Xem chi tiết</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="bg-danger text-white text-center m-2 p-2">
+                Không có Supplier nào trong hệ thống
+            </div>
+        }
+
+    </body>
+
+    </html>
+}

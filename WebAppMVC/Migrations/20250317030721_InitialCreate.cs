@@ -46,8 +46,7 @@ namespace WebAppMVC.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
                     CategoryId = table.Column<long>(type: "bigint", nullable: false),
-                    Suppliers = table.Column<long>(type: "bigint", nullable: false),
-                    SupplierId = table.Column<long>(type: "bigint", nullable: true)
+                    SupplierId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +61,8 @@ namespace WebAppMVC.Migrations
                         name: "FK_Products_Suppliers_SupplierId",
                         column: x => x.SupplierId,
                         principalTable: "Suppliers",
-                        principalColumn: "SupplierId");
+                        principalColumn: "SupplierId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

@@ -1,21 +1,34 @@
-﻿@{
+﻿@model Product?
+@{
     ViewData["Title"] = "Products Table";
+    Layout = "_SimpleLayout";
 }
 
 <div class="text-center">
-    <h2 class="border bg-primary text-white">@ViewData["Title"]</h2>
+    @* <h2 class="border bg-primary text-white">@ViewData["Title"]</h2> *@
     <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr bg-color="info" text-color="white">
+                <th colspan="2">Product Sumary</th>
+            </tr>
+
+        </thead>
         <tbody>
-            <tr><th>Name</th><td>@Model.Name</td></tr>
+            <tr>
+                <th>Name</th>
+                <td>@Model?.Name</td>
+            </tr>
             <tr>
                 <th>Price</th>
-                <td>@Model.Price.ToString("c")</td>
+                <td>
+                    @Model?.Price.ToString("c")
+                    (@(((Model?.Price / ViewBag.AveragePrice * 100).ToString("F2"))) % of average price)
+                </td>
             </tr>
             <tr>
                 <th>Category ID</th>
-                <td>@Model.CategoryId</td>
+                <td>@Model?.CategoryId</td>
             </tr>
         </tbody>
     </table>
 </div>
-

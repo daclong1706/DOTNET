@@ -3,6 +3,15 @@
 */obj/
 */out/
 
+*/SportStore/bin
+*/SportStore/obj/
+*/SportStore/out/
+*/SportStore/wwwroot/
+
+*/SportStore.Test/bin
+*/SportStore.Test/obj/
+*/SportStore.Test/out/
+
 # Ignore IDE settings
 .vs/
 .idea/

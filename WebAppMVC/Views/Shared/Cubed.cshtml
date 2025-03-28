@@ -1,0 +1,19 @@
+@{
+    Layout = "_Layout";
+}
+
+<h6 class="bg-secondary text-white text-center m-2 p-2">Cubed</h6>
+<form method="get" action="/cubed/cube" class="m-2">
+    <div class="form-group">
+        <label for="">Value</label>
+        <input type="text" name="num" id="" class="form-control" value="@(TempData["value"])" />
+    </div>
+    <button class="btn-primary at-1">Submit</button>
+</form>
+
+@if (TempData["result"] != null)
+{
+    <div class="bg-info text-white m-2 p-2">
+        The cube of @TempData["value"] is @TempData["result"]
+    </div>
+}

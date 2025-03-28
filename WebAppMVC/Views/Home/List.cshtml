@@ -1,0 +1,26 @@
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Products List";
+    Layout = "_Layout";
+    decimal average = Model.Average(p => p.Price);
+}
+
+<h6 class="bg-secondary text-white text-center m-2 p-2">List</h6>
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product product in Model)
+        {
+            @* <partial name="_RowPartial" model="product" /> *@
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>

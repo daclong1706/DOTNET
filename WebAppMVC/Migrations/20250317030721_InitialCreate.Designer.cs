@@ -11,7 +11,7 @@ using WebAppMVC.Models;
 namespace WebAppMVC.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250303040046_InitialCreate")]
+    [Migration("20250317030721_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -59,10 +59,7 @@ namespace WebAppMVC.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(8,2)");
 
-                    b.Property<long?>("SupplierId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("Suppliers")
+                    b.Property<long>("SupplierId")
                         .HasColumnType("bigint");
 
                     b.HasKey("ProductId");
@@ -105,7 +102,9 @@ namespace WebAppMVC.Migrations
 
                     b.HasOne("WebAppMVC.Models.Supplier", "Supplier")
                         .WithMany("Products")
-                        .HasForeignKey("SupplierId");
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
 
